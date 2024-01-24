@@ -33,4 +33,26 @@ end
 
 # p exp2(2, 6)
 # p exp2(3, 3)
-p exp2(2, 256)
+# p exp2(2, 256)
+
+
+class Array
+    #   new_arr = []
+    #   self.each do |subarr|
+    #       new_arr << subarr
+    #       end
+    #      new_arr 
+    def deep_dup
+        new_arr = []
+            self.each do |ele|
+                if ele.is_a?(Array)
+                    new_arr << ele.deep_dup
+                else
+                    new_arr << ele
+                end
+            end
+        new_arr    
+    end
+end
+
+p [1, [2], [3, [4]]].deep_dup
