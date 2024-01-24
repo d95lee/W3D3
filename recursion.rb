@@ -55,4 +55,19 @@ class Array
     end
 end
 
-p [1, [2], [3, [4]]].deep_dup
+# p [1, [2], [3, [4]]].deep_dup
+
+def fib(n) # n == 3  [0, 1, 1, 2]
+           #         [0, 1, 2, 3]                     
+    return [0] if n == 0
+    return [0, 1] if n == 1
+    fib(n - 1) << fib(n - 1).last + fib(n - 2).last
+end
+
+# p fib(3)
+# p fib(10)
+
+
+def binary_search
+
+end
