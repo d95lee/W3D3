@@ -68,6 +68,26 @@ end
 # p fib(10)
 
 
-def binary_search
-
+def bsearch(array, target)
+    return nil unless array.include?(target)
+    middle_index = array.length / 2
+ 
+    return middle_index if target == array[middle_index]
+    if target < array[middle_index]
+        bsearch(array[0...middle_index], target)
+    else
+        result = bsearch(array[middle_index + 1..-1], target)
+        result.nil? ? nil : middle_index + 1 + result
+    end                 #middle_index = 2  + 1 +  0
+                        #middle_index = 3  + 1 +  ?
+          
 end
+
+
+p bsearch([1, 3, 4, 5, 9], 5) # => 3
+p bsearch([1, 2, 3, 4, 5, 6], 6) # => 5
+# p bsearch([1, 2, 3], 1) # => 0
+# p bsearch([2, 3, 4, 5], 3) # => 1
+# p bsearch([2, 4, 6, 8, 10], 6) # => 2
+# p bsearch([1, 2, 3, 4, 5, 6], 0) # => nil
+# p bsearch([1, 2, 3, 4, 5, 7], 6) # => nil
